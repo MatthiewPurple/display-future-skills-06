@@ -5,7 +5,7 @@ using Il2Cppnewdata_H;
 using Il2Cppresult2_H;
 using display_future_skills_06;
 
-[assembly: MelonInfo(typeof(DisplayFutureSkills06), "Display Future Skills (0.6 ver.)", "1.0.0", "Matthiew Purple")]
+[assembly: MelonInfo(typeof(DisplayFutureSkills06), "Display Future Skills NO SPOILERS (0.6 ver.)", "1.0.0", "Matthiew Purple")]
 [assembly: MelonGame("アトラス", "smt3hd")]
 
 namespace display_future_skills_06;
@@ -20,6 +20,7 @@ public class DisplayFutureSkills06 : MelonMod
             {
                 ushort skillID = pSkillInfo.SkillID[i];
                 if (skillID == 0) break;
+                if (skillID == 357 && pStock.id == 0) continue; //Skip Pierce on Demi-fiend
 
                 string name = datSkillName.Get(skillID, pStock.id);
                 cmpStatus._statusUIScr.awaitText[i].text = "<material=\"TMC14\">" + name;
