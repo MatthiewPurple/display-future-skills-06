@@ -20,7 +20,15 @@ public class DisplayFutureSkills06 : MelonMod
             {
                 ushort skillID = pSkillInfo.SkillID[i];
                 if (skillID == 0) break;
-                if (skillID == 357 && pStock.id == 0) continue; //Skip Pierce on Demi-fiend
+                if (skillID == 357 && pStock.id == 0)
+                {
+                    // If you can get Pierce without TDE (mod) but aren't high level level enough
+                    if (EventBit.evtBitCheck(2241) && tblHearts.fclHeartsTbl[1].Skill[5].TargetLevel > pStock.level + 1)
+                    {
+                        cmpStatus._statusUIScr.awaitText[i].text = "<material=\"TMC14\">?"; // Displays a "?"
+                    }
+                    continue; //Skip Pierce on Demi-fiend
+                }
 
                 string name = datSkillName.Get(skillID, pStock.id);
                 cmpStatus._statusUIScr.awaitText[i].text = "<material=\"TMC14\">" + name;
