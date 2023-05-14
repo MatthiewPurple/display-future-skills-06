@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>display_future_skills_06</RootNamespace>
+    <RootNamespace>display_future_skills_no_spoilers_06</RootNamespace>
+    <AssemblyName>display_future_skills_no_spoilers_06</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
